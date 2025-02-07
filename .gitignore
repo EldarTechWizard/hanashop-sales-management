@@ -1,0 +1,25 @@
+# Ignorar otras configuraciones comunes
+node_modules
+dist
+.env
+.DS_Store
+.vscode
+.idea
+
+
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
