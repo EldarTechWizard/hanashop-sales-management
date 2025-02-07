@@ -4,14 +4,21 @@ FROM python:3.10
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos al contenedor
-COPY . /app
+# Instala pipenv
+RUN pip install --no-cache-dir pipenv
 
-# Instala dependencias
-RUN pip install --no-cache-dir -r requirements.txt
+# Copia solo los archivos necesarios para instalar dependencias
+COPY Pipfile Pipfile.lock /app/
+
+# Instala las dependencias en un entorno virtual
+RUN pipenv install --deploy --ignore-pipfile
+
+# Copia el resto de los archivos del proyecto
+COPY . /app
 
 # Expone el puerto 8000
 EXPOSE 8000
 
-# Comando por defecto
-CMD ["sh", "-c", "python hanashop_api/manage.py migrate && python hanashop_api/manage.py runserver 0.0.0.0:8000"]
+# Activa el entorno de pipenv y ejecuta el servidor
+CMD ["sh", "-c", "pipenv run python hanashop_api/manage.py migrate && pipenv run python hanashop_api/manage.py runserver 0.0.0.0:8000"]
+
