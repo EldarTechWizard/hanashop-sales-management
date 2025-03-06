@@ -30,12 +30,12 @@ class CategoryAPITestCases(APITestCase):
             "name": "Updated Category",
             "icon": "food"
         }
-        response = self.client.put(
+        response = self.client.patch(
             f'/api/categories/{self.category.id}/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.category.refresh_from_db()
         self.assertEqual(self.category.name, "Updated Category")
-        self.assertEqual(self.category.description,
+        self.assertEqual(self.category.icon,
                          "food")
 
     def test_delete_category(self):

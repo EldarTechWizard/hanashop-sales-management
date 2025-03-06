@@ -1,13 +1,13 @@
 import factory
+from django.contrib.auth import models as auth_models
 from factory.fuzzy import FuzzyChoice
 from sales_api_app.models import (
-    Product, Category, Info_customer, Order, Order_detail, Inventory_movement)
-from django.contrib.auth.models import User
+    Product, Category, InfoCustomer, Order, OrderDetail, InventoryMovement)
 
 
 class UserFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = User
+        model = auth_models.User
 
     username = factory.Faker('user_name')
     email = factory.Faker('email')
@@ -47,7 +47,7 @@ class ProductFactory(factory.django.DjangoModelFactory):
 
 class InfoCustomerFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = Info_customer
+        model = InfoCustomer
 
     name = factory.Faker("name")
     email = factory.Faker("email")
@@ -73,7 +73,7 @@ class OrderFactory(factory.django.DjangoModelFactory):
 
 class OrderDetailFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = Order_detail
+        model = OrderDetail
 
     order = factory.SubFactory(OrderFactory)
     product = factory.SubFactory(ProductFactory)
@@ -86,7 +86,7 @@ class OrderDetailFactory(factory.django.DjangoModelFactory):
 
 class InventoryMovementFactory(factory.django.DjangoModelFactory):
     class Meta:
-        model = Inventory_movement
+        model = InventoryMovement
 
     product = factory.SubFactory(ProductFactory)
     movement_type = FuzzyChoice(["In", "Out"])

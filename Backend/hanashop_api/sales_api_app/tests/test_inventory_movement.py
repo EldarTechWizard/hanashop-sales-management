@@ -1,7 +1,7 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
 from sales_api_app.factories import ProductFactory, InventoryMovementFactory
-from sales_api_app.models import Inventory_movement
+from sales_api_app.models import InventoryMovement
 
 
 class InventoryMovementAPITestCases(APITestCase):
@@ -11,7 +11,7 @@ class InventoryMovementAPITestCases(APITestCase):
             product=self.product)
 
     def test_get_inventory_movements(self):
-        response = self.client.get('/api/inventory_movement/')
+        response = self.client.get('/api/inventory_movements/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_create_inventory_movement(self):
@@ -21,10 +21,12 @@ class InventoryMovementAPITestCases(APITestCase):
             "quantity": 100,
             "reference": "Stock Arrival"
         }
+
         response = self.client.post(
-            '/api/inventory_movement/', data, format='json')
+            '/api/inventory_movements/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        inventory_movement = Inventory_movement.objects.get(
+
+        inventory_movement = InventoryMovement.objects.get(
             reference="Stock Arrival")
         self.assertEqual(inventory_movement.quantity, 100)
 
@@ -34,8 +36,8 @@ class InventoryMovementAPITestCases(APITestCase):
             "quantity": 50,
             "reference": "Stock Sale"
         }
-        response = self.client.put(
-            f'/api/inventory_movement/{self.inventory_movement.id}/',
+        response = self.client.patch(
+            f'/api/inventory_movements/{self.inventory_movement.id}/',
             data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.inventory_movement.refresh_from_db()
@@ -45,7 +47,7 @@ class InventoryMovementAPITestCases(APITestCase):
 
     def test_delete_inventory_movement(self):
         response = self.client.delete(
-            f'/api/inventory_movement/{self.inventory_movement.id}/')
+            f'/api/inventory_movements/{self.inventory_movement.id}/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
-        with self.assertRaises(Inventory_movement.DoesNotExist):
-            Inventory_movement.objects.get(id=self.inventory_movement.id)
+        with self.assertRaises(InventoryMovement.DoesNotExist):
+            InventoryMovement.objects.get(id=self.inventory_movement.id)
