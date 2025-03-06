@@ -32,7 +32,7 @@ class OrderAPITestCases(APITestCase):
             "total": 200.50,
             "status": False
         }
-        response = self.client.put(
+        response = self.client.patch(
             f'/api/orders/{self.order.id}/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.order.refresh_from_db()

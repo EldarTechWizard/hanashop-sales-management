@@ -46,7 +46,7 @@ class ProductAPITestCases(APITestCase):
             "image": "new_image_url",
             "status": False
         }
-        response = self.client.put(
+        response = self.client.patch(
             f'/api/products/{self.product.id}/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.product.refresh_from_db()
