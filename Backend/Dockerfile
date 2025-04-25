@@ -20,5 +20,5 @@ COPY . /app
 EXPOSE 8000
 
 # Activa el entorno de pipenv y ejecuta el servidor
-CMD ["sh", "-c", "pipenv run python hanashop_api/manage.py migrate && pipenv run python hanashop_api/manage.py runserver 0.0.0.0:8000"]
+CMD ["sh", "-c", "pipenv run python hanashop_api/manage.py migrate && pipenv run python hanashop_api/manage.py runserver 0.0.0.0:8000 --noreload"]
 

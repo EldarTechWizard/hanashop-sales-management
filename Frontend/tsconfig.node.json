@@ -28,6 +28,7 @@
       "@stores/*": ["src/stores/*"],
       "@types/*": ["src/types/*"],
       "@lib/*": ["src/lib/*"],
+      "@types/*": ["src/types/*"],
       "@routes/*": ["src/app/routes/*"],
     }
   },
