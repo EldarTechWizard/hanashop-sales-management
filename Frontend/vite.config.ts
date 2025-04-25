@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, URL } from 'node:url';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [tailwindcss(),react()],
   server: {
     host: "0.0.0.0",
     port: 5173,
@@ -23,6 +24,7 @@ export default defineConfig({
       { find: '@stores', replacement: fileURLToPath(new URL('./src/stores', import.meta.url)) },
       { find: '@types', replacement: fileURLToPath(new URL('./src/types', import.meta.url)) },
       { find: '@lib', replacement: fileURLToPath(new URL('./src/lib', import.meta.url)) },
+      { find: '@types', replacement: fileURLToPath(new URL('./src/types', import.meta.url)) },
       { find: '@routes', replacement: fileURLToPath(new URL('./src/app/routes', import.meta.url)) },
     ]
   },

@@ -15,7 +15,6 @@ class InfoCustomerAPITestCases(APITestCase):
     def test_create_info_customer(self):
         data = {
             "name": "John Doe",
-            "email": "john.doe@example.com",
             "phone": "1234567890",
             "address": "123 Main St",
             "user": self.info_customer.user.id,
@@ -23,12 +22,11 @@ class InfoCustomerAPITestCases(APITestCase):
         response = self.client.post('/api/customers/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         customer = InfoCustomer.objects.get(name="John Doe")
-        self.assertEqual(customer.email, "john.doe@example.com")
+        self.assertEqual(customer.address, "123 Main St")
 
     def test_update_info_customer(self):
         data = {
             "name": "Jane Doe",
-            "email": "jane.doe@example.com",
             "phone": "0987654321",
             "address": "456 Elm St",
             "status": False
@@ -39,7 +37,7 @@ class InfoCustomerAPITestCases(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.info_customer.refresh_from_db()
         self.assertEqual(self.info_customer.name, "Jane Doe")
-        self.assertEqual(self.info_customer.email, "jane.doe@example.com")
+        self.assertEqual(self.info_customer.address, "456 Elm St")
 
     def test_delete_info_customer(self):
         response = self.client.delete(

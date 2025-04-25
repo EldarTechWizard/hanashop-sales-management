@@ -29,11 +29,8 @@ class ProductFactory(factory.django.DjangoModelFactory):
 
     category = factory.SubFactory(CategoryFactory)
     name = factory.Faker("word")
-    barcode = factory.Faker("random_number", digits=8)
     color = factory.Faker("color_name")
     description = factory.Faker("paragraph")
-    size = factory.Faker("word")
-    size_type = factory.Faker("word")
     unit_price = factory.Faker("pydecimal",
                                left_digits=5,
                                right_digits=2,
@@ -50,7 +47,6 @@ class InfoCustomerFactory(factory.django.DjangoModelFactory):
         model = InfoCustomer
 
     name = factory.Faker("name")
-    email = factory.Faker("email")
     phone = factory.Faker("phone_number")
     address = factory.Faker("address")
     user = factory.SubFactory(UserFactory)

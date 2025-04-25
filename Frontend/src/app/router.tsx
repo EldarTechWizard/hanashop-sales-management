@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import { QueryClient, useQueryClient } from '@tanstack/react-query'
 import {paths} from '@config/paths'
 
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const convert = (queryClient: QueryClient) => async (m: any) => {
     const { clientLoader, clientAction, default: Component, ...rest } = m;
@@ -20,6 +19,10 @@ const convert = (queryClient: QueryClient) => async (m: any) => {
       {
         path: paths.home.path,
         lazy: async () => import('./routes/landing').then(convert(queryClient)),
+      },
+      {
+        path: paths.products.path,
+        lazy: async () => import('./routes/pages/product').then(convert(queryClient)),
       },
       {
         path: paths.example.path,

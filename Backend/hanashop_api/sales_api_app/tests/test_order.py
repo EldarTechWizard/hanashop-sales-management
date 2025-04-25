@@ -1,7 +1,7 @@
 from rest_framework.test import APITestCase
 from rest_framework import status
 from sales_api_app.factories import (
-    OrderFactory, InfoCustomerFactory, UserFactory)
+    OrderFactory, InfoCustomerFactory, UserFactory, ProductFactory)
 from sales_api_app.models import Order
 
 
@@ -10,6 +10,7 @@ class OrderAPITestCases(APITestCase):
         self.user = UserFactory()
         self.customer = InfoCustomerFactory()
         self.order = OrderFactory(user=self.user, customer=self.customer)
+        self.product = ProductFactory()
 
     def test_get_orders(self):
         response = self.client.get('/api/orders/')
@@ -20,7 +21,14 @@ class OrderAPITestCases(APITestCase):
             "user": self.user.id,
             "customer": self.customer.id,
             "total": 150.75,
-            "status": True
+            "status": True,
+            "orders": [{
+                "id": None,
+                "order": None,
+                "product": self.product.id,
+                "quantity": 1,
+                "sub_total": 213.4
+            }]
         }
         response = self.client.post('/api/orders/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)

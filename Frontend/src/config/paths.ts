@@ -3,6 +3,10 @@ export const paths = {
         path: '/',
         getHref: () => '/',
     },
+    products : {
+        path: '/product',
+        getHref: () => '/product',
+    },
     example : {
         path: '/example',
         getHref: () => '/example'

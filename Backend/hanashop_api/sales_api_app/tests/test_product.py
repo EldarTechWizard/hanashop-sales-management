@@ -16,11 +16,8 @@ class ProductAPITestCases(APITestCase):
         data = {
             "category": self.product.category.id,
             "name": "New Product",
-            "barcode": "1234567890",
             "color": "Red",
             "description": "A new product",
-            "size": "M",
-            "size_type": "Medium",
             "unit_price": 99.99,
             "minimum_stock_level": 10,
             "stock": 50,
@@ -30,16 +27,13 @@ class ProductAPITestCases(APITestCase):
         response = self.client.post('/api/products/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         product = Product.objects.get(name="New Product")
-        self.assertEqual(product.barcode, "1234567890")
+        self.assertEqual(product.color, "Red")
 
     def test_update_product(self):
         data = {
             "name": "Updated Product",
-            "barcode": "0987654321",
             "color": "Blue",
             "description": "Updated description",
-            "size": "L",
-            "size_type": "Large",
             "unit_price": 109.99,
             "minimum_stock_level": 5,
             "stock": 30,
@@ -51,7 +45,7 @@ class ProductAPITestCases(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.product.refresh_from_db()
         self.assertEqual(self.product.name, "Updated Product")
-        self.assertEqual(self.product.barcode, "0987654321")
+        self.assertEqual(self.product.color, "Blue")
 
     def test_delete_product(self):
         response = self.client.delete(f'/api/products/{self.product.id}/')
