@@ -1,6 +1,5 @@
 import { Flex, Text } from "@radix-ui/themes"
 import { useSales } from "@stores/salesStore"
-import { useEffect } from "react";
 
 
 export const CartPaymentInfo = () => {

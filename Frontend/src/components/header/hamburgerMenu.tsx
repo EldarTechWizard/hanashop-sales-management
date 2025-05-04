@@ -35,10 +35,10 @@ const HamburgerMenu = () => {
           {/* Menu Items */}
           <nav className="mt-4 space-y-4">
             <Link to="/" className="block text-lg font-medium hover:text-blue-500">
-              Home
+              Ventas
             </Link>
-            <Link to="/product" className="block text-lg font-medium hover:text-blue-500">
-              Product
+            <Link to="/gestion" className="block text-lg font-medium hover:text-blue-500">
+              Gestion
             </Link>
           </nav>
         </DialogContent>

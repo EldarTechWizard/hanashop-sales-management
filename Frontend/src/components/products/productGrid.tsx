@@ -1,6 +1,6 @@
 import { Box, Table } from "@radix-ui/themes";
-import { Product } from "@types/types";
-import { getProductColumns } from "@types/columnsDefinitions"
+import { Product } from "@customTypes/types";
+import { getProductColumns } from "@customTypes/columnsDefinitions"
 import { useState } from "react";
 import { flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table"
 import useProduct from "@stores/productStore";
@@ -19,7 +19,7 @@ const ProductGrid = () => {
             registration_date: new Date("2024-01-15"),
             image: "https://placehold.co/50",
             status: true,
-            category: "Ropa",
+            category: 2,
         },
         {
             id: 2,
@@ -32,7 +32,7 @@ const ProductGrid = () => {
             registration_date: new Date("2024-02-10"),
             image: "https://placehold.co/50",
             status: true,
-            category: "Accesorios",
+            category: 3,
         },
         {
             id: 3,
@@ -45,7 +45,7 @@ const ProductGrid = () => {
             registration_date: new Date("2024-03-05"),
             image: "https://placehold.co/50",
             status: false,
-            category: "Electrónica",
+            category: 4,
         },
     ]);
 

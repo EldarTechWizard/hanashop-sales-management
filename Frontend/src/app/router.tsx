@@ -25,8 +25,24 @@ const convert = (queryClient: QueryClient) => async (m: any) => {
         lazy: async () => import('./routes/pages/product').then(convert(queryClient)),
       },
       {
+        path: paths.gestion.path,
+        lazy: async () => import('./routes/pages/gestion').then(convert(queryClient)),
+      },
+      {
         path: paths.example.path,
         lazy: async () => import('./routes/pages/example').then(convert(queryClient)),
+      },
+      {
+        path: paths.customers.path,
+        lazy: async () => import('./routes/pages/customer').then(convert(queryClient)),
+      },
+      {
+        path: paths.categories.path,
+        lazy: async () => import('./routes/pages/category').then(convert(queryClient)),
+      },
+      {
+        path: paths.inventory.path,
+        lazy: async () => import('./routes/pages/inventory-movement').then(convert(queryClient)),
       }
     ]);
 

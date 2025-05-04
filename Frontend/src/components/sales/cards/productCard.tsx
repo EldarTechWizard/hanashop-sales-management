@@ -1,19 +1,19 @@
 import { Badge, Box, Card, Flex, Text } from "@radix-ui/themes";
 import { useSales } from "@stores/salesStore";
-import { Product } from "@types/types";
+import { Product } from "@customTypes/types";
 
 type ProductCardProps = {
     product: Product;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({product}) => {
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const { addToCart } = useSales()
 
     return (
-        <Card onClick={()=>{addToCart(product)}} style={{cursor: "pointer"}}>
+        <Card onClick={() => { addToCart(product) }} style={{ cursor: "pointer" }}>
             <Flex direction="column" gap="1">
                 <img
-                    src="https://placehold.co/800x400"
+                    src={product.image}
                     alt="Bold typography"
                     style={{
                         display: "block",
@@ -22,6 +22,10 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
                         height: 120,
                         borderRadius: 3,
                         backgroundColor: "var(--gray-5)",
+                    }}
+                    onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; // prevents looping
+                        currentTarget.src = "http://localhost:8000/media/images/default.webp";
                     }}
                 />
                 <Text size="1">{product.name}</Text>

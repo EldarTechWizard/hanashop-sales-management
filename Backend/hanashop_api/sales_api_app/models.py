@@ -24,6 +24,7 @@ class Product(models.Model):
     registration_date = models.DateTimeField(auto_now_add=True)
     image = models.CharField(max_length=512, blank=True)
     status = models.BooleanField(default=True)
+    _skip_signal = models.BooleanField(default=False, editable=False)
 
     def __str__(self):
         return self.name

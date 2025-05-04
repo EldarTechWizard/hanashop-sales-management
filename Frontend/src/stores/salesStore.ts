@@ -1,5 +1,4 @@
-import { getData } from "@lib/api";
-import { Category, OrderDetail, Product } from "@types/types";
+import { Category, OrderDetail, Product } from "@customTypes/types";
 import { create } from "zustand";
 
 type SalesStore = {
@@ -89,7 +88,7 @@ export const useSales = create<SalesStore>((set) => ({
   },
 
   deleteFromCart: () => {
-    set((state) => ({
+    set(() => ({
       cart: [],
       total: 0,
     }));

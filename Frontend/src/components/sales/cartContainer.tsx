@@ -1,4 +1,4 @@
-import { Button, Flex } from "@radix-ui/themes";
+import {Flex } from "@radix-ui/themes";
 import CartHeader from "./cart/cartHeader";
 import { Separator } from "./utils/separator";
 import { CartItems } from "./cart/cartItems";
