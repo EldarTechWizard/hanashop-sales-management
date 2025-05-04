@@ -1,8 +1,8 @@
-import { Box, Flex, Grid, ScrollArea } from "@radix-ui/themes";
+import {Grid, ScrollArea } from "@radix-ui/themes";
 import ProductCard from "./cards/productCard";
 import { getData } from "@lib/api";
 import { useQuery } from "@tanstack/react-query";
-import { Product } from "@types/types";
+import { Product } from "@customTypes/types";
 import { useSales } from "@stores/salesStore";
 
 const ProductContainer = () => {

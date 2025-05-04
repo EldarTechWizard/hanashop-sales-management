@@ -1,55 +1,61 @@
 export interface Product {
-    id: number | null;
+    id?: number;
     name: string;
     color: string,
     description: string,
     unit_price: number,
     minimum_stock_level: number,
     stock: number,
-    registration_date: Date,
+    registration_date?: Date,
     image: string,
-    status: boolean,
-    category: number
+    category: number,
+    status?: boolean
 }
 
 export interface Category {
-    id: number;
+    id?: number;
     name: string;
     icon: string;
-    status: boolean;
+    status?: boolean;
 }
 
 export interface OrderDetail {
-    id: number | null
-    order: number | null;
+    id?: number;
+    order?: number;
     product: number;
     quantity: number;
     sub_total: number;
 }
 
 export interface Customer {
-    id: number;
+    id?: number;
     name: string;
     phone: string;
     address: string;
-    user: number;
-    status: boolean;
+    user?: number;
+    status?: boolean;
 }
 
 export interface Order {
-    id: number | null;
-    customer: number | null;
-    user: number | null;
+    id?: number;
+    customer?: number;
+    user?: number;
     total: number;
     status: boolean
     orders?: OrderDetail[]
 }
 
 export interface InventoryMovement {
-    id: number | null;
+    id?: number | null;
     movement_type: string;
     quantity: number;
     reference: string;
-    status: boolean;
+    status?: boolean;
     product: number;
 }
+
+export interface Option {
+    value: string;
+    label: string;
+}
+

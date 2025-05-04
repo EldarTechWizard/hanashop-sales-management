@@ -2,12 +2,9 @@ import { Flex, ScrollArea } from "@radix-ui/themes";
 import CategoryCard from "./cards/categoryCard";
 import { useQuery } from "@tanstack/react-query";
 import { getData } from "@lib/api";
-import { Category } from "@types/types";
-import { useSales } from "@stores/salesStore";
-import { useEffect } from "react";
+import { Category } from "@customTypes/types";
 
 const CategoryContainer = () => {
-    const {selectedCategory, setSelectedCategory} = useSales()
 
     const {data, isLoading, isError, error} = useQuery({
         queryKey: ['categories'],

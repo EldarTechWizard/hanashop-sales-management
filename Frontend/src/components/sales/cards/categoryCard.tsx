@@ -1,5 +1,5 @@
 import { Avatar,  Card, Flex, Text } from "@radix-ui/themes";
-import { Category } from "@types/types";
+import { Category } from "@customTypes/types";
 import { useSales } from "@stores/salesStore";
 
 type CategoryCardProps = {

@@ -24,13 +24,10 @@ export default defineConfig({
       { find: '@stores', replacement: fileURLToPath(new URL('./src/stores', import.meta.url)) },
       { find: '@types', replacement: fileURLToPath(new URL('./src/types', import.meta.url)) },
       { find: '@lib', replacement: fileURLToPath(new URL('./src/lib', import.meta.url)) },
-      { find: '@types', replacement: fileURLToPath(new URL('./src/types', import.meta.url)) },
+      { find: '@customTypes', replacement: fileURLToPath(new URL('./src/types', import.meta.url)) },
       { find: '@routes', replacement: fileURLToPath(new URL('./src/app/routes', import.meta.url)) },
+      { find: '@api', replacement: fileURLToPath(new URL('./src/api', import.meta.url)) },
     ]
   },
 
-  test: {
-    globals: true,
-    environment: "jsdom", // Needed for React component testing
-  },
 })

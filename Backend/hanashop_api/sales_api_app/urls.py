@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (ProductView, OrderView, CategoryView,
                     OrderDetailView, InfoCustomerView, InventoryMovementView,
                     OrdersView, ProductsView, CategoriesView, OrderDetailsView,
-                    InfoCustomersView, InventoryMovementsView)
+                    InfoCustomersView, InventoryMovementsView, ImageUploadView)
 
 
 urlpatterns = [
@@ -28,4 +28,5 @@ urlpatterns = [
          name='customer-retrieve-update-destroy'),
     path('inventory_movements/<int:pk>/', InventoryMovementView.as_view(),
          name='inventory-movement-retrieve-update-destroy'),
+    path('upload-image/', ImageUploadView.as_view()),
 ]

@@ -28,9 +28,10 @@
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],
       "@stores/*": ["src/stores/*"],
-      "@types/*": ["src/types/*"],
+      "@customTypes/*": ["src/types/*"],
       "@lib/*": ["src/lib/*"],
       "@routes/*": ["src/app/routes/*"],
+      "@api/*":["src/api/*"],
     }
   },
   "include": ["src"]

@@ -36,6 +36,8 @@ typing-extensions = "==4.12.2"
 tzdata = "==2025.1"
 pytest-factoryboy = "*"
 factory-boy = "*"
+pillow = "*"
+django-filter = "*"
 
 [dev-packages]
 

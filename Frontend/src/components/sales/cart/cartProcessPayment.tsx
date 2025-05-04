@@ -2,9 +2,6 @@ import { postData } from "@lib/api";
 import { AlertDialog, Button, Flex } from "@radix-ui/themes"
 import { useSales } from "@stores/salesStore";
 
-type CartProccessPaymentProps = {
-
-}
 
 const CartProccessPayment = () => {
     const { cart, total, deleteFromCart } = useSales();

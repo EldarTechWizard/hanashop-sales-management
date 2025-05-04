@@ -3,7 +3,7 @@ import { MinusIcon, PlusIcon } from "@radix-ui/react-icons"
 import { Avatar, Card, Flex, Text } from "@radix-ui/themes"
 import { useSales } from "@stores/salesStore"
 import { useQuery } from "@tanstack/react-query"
-import { OrderDetail } from "@types/types"
+import { OrderDetail } from "@customTypes/types"
 import { useEffect } from "react"
 
 type CartItemCardProps = {
