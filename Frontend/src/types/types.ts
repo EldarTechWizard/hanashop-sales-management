@@ -40,6 +40,7 @@ export interface Order {
     id?: number;
     customer?: number;
     user?: number;
+    order_date? : Date;
     total: number;
     status: boolean
     orders?: OrderDetail[]
@@ -48,6 +49,7 @@ export interface Order {
 export interface InventoryMovement {
     id?: number | null;
     movement_type: string;
+    movement_date?: Date;
     quantity: number;
     reference: string;
     status?: boolean;

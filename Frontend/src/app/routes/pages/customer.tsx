@@ -13,7 +13,7 @@ const Actions = ({row}: {row: Customer}) => {
     const deleteCustomer = useDeleteCustomer()
 
     return (
-        <Flex>
+        <Flex gap="2">
             <FormCustomer customer={row}/>
             <CustomButton text="Eliminar" leftIcon={<TrashIcon/> } color="red" onClick={() => {if(row.id) deleteCustomer.mutate(row?.id)}} />
         </Flex>

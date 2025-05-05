@@ -37,8 +37,23 @@ const HamburgerMenu = () => {
             <Link to="/" className="block text-lg font-medium hover:text-blue-500">
               Ventas
             </Link>
-            <Link to="/gestion" className="block text-lg font-medium hover:text-blue-500">
-              Gestion
+            <Link to="/categories" className="block text-lg font-medium hover:text-blue-500">
+              Categorias
+            </Link>
+            <Link to="/product" className="block text-lg font-medium hover:text-blue-500">
+              Productos
+            </Link>
+            <Link to="/customers" className="block text-lg font-medium hover:text-blue-500">
+              Clientes
+            </Link>
+            <Link to="/inventory" className="block text-lg font-medium hover:text-blue-500">
+              Inventario
+            </Link>
+            <Link to="/sales_report" className="block text-lg font-medium hover:text-blue-500">
+              Reporte de ventas
+            </Link>
+            <Link to="/inventory_report" className="block text-lg font-medium hover:text-blue-500">
+              Reporte de inventario
             </Link>
           </nav>
         </DialogContent>

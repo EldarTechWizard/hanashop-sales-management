@@ -9,8 +9,10 @@ type CategoryCardProps = {
 const CategoryCard: React.FC<CategoryCardProps> = ({category}) => {
     const {selectedCategory, setSelectedCategory} = useSales()
 
+    const style = "bg-white border-2 border-solid border-indigo-400"
+
     return (
-        <Card style={{margin:1, cursor: "pointer"}} variant="ghost" className="bg-white" size="1" onClick={() => {setSelectedCategory(category)}}>
+        <Card style={{margin:1, cursor: "pointer"}} variant="ghost" className={selectedCategory?.id === category.id ? style : "bg-white"} size="1" onClick={() => {setSelectedCategory(category)}}>
             <Flex direction="column" width="90px" className="p-1">
                 <Avatar
                     size="3"

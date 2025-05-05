@@ -16,7 +16,7 @@ type SalesStore = {
 };
 
 export const useSales = create<SalesStore>((set) => ({
-  selectedCategory: null,
+  selectedCategory: {id: 0, name: "Todos", icon:"", status: true},
   cart: [],
   total: 0,
   searchText: "",

@@ -21,9 +21,9 @@ export function AppProvider({ children }: AppProviderProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-        <Theme style={{backgroundColor:"#FAFAFA"}} >
-        {children}
-        </Theme>
+      <Theme style={{ backgroundColor: "#FAFAFA" }} >
+          {children}
+      </Theme>
       <ReactQueryDevtools initialIsOpen={false} /> {/* Optional DevTools */}
     </QueryClientProvider>
   );

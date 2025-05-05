@@ -43,6 +43,5 @@ def handle_inventory_movement_create_or_update(sender, instance, **kwargs):
             product.stock -= instance.quantity
 
         product.stock = max(product.stock, 0)
-        product._skip_signal = True
         product.save()
 
