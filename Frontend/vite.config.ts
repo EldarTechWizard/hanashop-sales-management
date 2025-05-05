@@ -16,6 +16,9 @@ export default defineConfig({
       '/api': 'http://127.0.0.1:8000', // Proxy para la API de Django
     },
   },
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+  },
   resolve: {
     alias: [
       { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) },

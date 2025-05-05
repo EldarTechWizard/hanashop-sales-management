@@ -43,6 +43,15 @@ const convert = (queryClient: QueryClient) => async (m: any) => {
       {
         path: paths.inventory.path,
         lazy: async () => import('./routes/pages/inventory-movement').then(convert(queryClient)),
+      },
+      {
+        path: paths.salesReport.path,
+        lazy: async () => import('./routes/pages/salesReport').then(convert(queryClient)),
+      }
+      ,
+      {
+        path: paths.inventoryReport.path,
+        lazy: async () => import('./routes/pages/inventoryReport').then(convert(queryClient)),
       }
     ]);
 

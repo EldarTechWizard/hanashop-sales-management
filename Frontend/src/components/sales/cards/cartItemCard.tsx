@@ -35,6 +35,10 @@ export const CartItemCard: React.FC<CartItemCardProps> = ({ orderDetail }) => {
                     src="https://placehold.co/400"
                     radius="medium"
                     fallback="t"
+                    onError={({ currentTarget }) => {
+                        currentTarget.onerror = null; // prevents looping
+                        currentTarget.src = "http://localhost:8000/media/images/default.webp";
+                    }}
                 />
                 <Flex direction="column" className="w-full" justify="between">
                     <Flex direction="column">

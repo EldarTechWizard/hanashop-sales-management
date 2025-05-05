@@ -13,6 +13,7 @@ from .serializers import (ProductSerializer, CategorySerializer,
                           InventoryMovementSerializer, OrderDetailSerializer,
                           InfoCustomerSerializer, OrderSerializer,
                           ImageUploadSerializer)
+from .filters import (OrderFilter, InventoryFilter)
 
 
 class ImageUploadView(APIView):
@@ -69,6 +70,8 @@ class CategoryView(generics.RetrieveUpdateDestroyAPIView):
 class InventoryMovementsView(generics.ListCreateAPIView):
     queryset = InventoryMovement.objects.all()
     serializer_class = InventoryMovementSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = InventoryFilter
 
     def get_queryset(self):
         return InventoryMovement.objects.filter(status=True)
@@ -86,6 +89,8 @@ class InventoryMovementView(generics.RetrieveUpdateDestroyAPIView):
 class OrdersView(generics.ListCreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = OrderFilter
 
     def get_queryset(self):
         return Order.objects.filter(status=True)
